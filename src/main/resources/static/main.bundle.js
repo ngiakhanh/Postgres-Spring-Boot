@@ -42,7 +42,7 @@ var routes = [
     { path: 'heroes', component: __WEBPACK_IMPORTED_MODULE_3__heroes_heroes_component__["a" /* HeroesComponent */] },
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_4__dashboard_dashboard_component__["a" /* DashboardComponent */] },
     { path: 'detail/:id', component: __WEBPACK_IMPORTED_MODULE_0__hero_detail_hero_detail_component__["a" /* HeroDetailComponent */] },
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -182,7 +182,7 @@ module.exports = "/* DashboardComponent's private CSS styles */\r\n\r\n[class*='
 /***/ "./src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Top Heroes1</h3>\r\n\r\n<div class=\"grid grid-pad\">\r\n    <a *ngFor=\"let hero of heroes\" class=\"col-1-4\" routerLink=\"/detail/{{hero.id}}\">\r\n        <div class=\"module hero\">\r\n            <h4>{{hero.name}}</h4>\r\n        </div>\r\n    </a>\r\n</div>"
+module.exports = "<h3>Top Heroes</h3>\r\n\r\n<div class=\"grid grid-pad\">\r\n    <a *ngFor=\"let hero of heroes\" class=\"col-1-4\" routerLink=\"/detail/{{hero.id}}\">\r\n        <div class=\"module hero\">\r\n            <h4>{{hero.name}}</h4>\r\n        </div>\r\n    </a>\r\n</div>"
 
 /***/ }),
 
@@ -496,7 +496,7 @@ var Hero = (function () {
 /***/ "./src/app/heroes/heroes.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* HeroesComponent's private CSS styles */\r\n\r\n.heroes {\r\n    margin: 0 0 2em 0;\r\n    list-style-type: none;\r\n    padding: 0;\r\n    width: 30em;\r\n}\r\n\r\n.heroes li {\r\n    position: relative;\r\n    cursor: pointer;\r\n    background-color: #EEE;\r\n    margin: .5em;\r\n    padding: .3em 0;\r\n    height: 2.6em;\r\n    border-radius: 4px;\r\n}\r\n\r\n.heroes li:hover {\r\n    color: #607D8B;\r\n    background-color: #DDD;\r\n    left: .1em;\r\n}\r\n\r\n.heroes a {\r\n    color: #888;\r\n    text-decoration: none;\r\n    position: relative;\r\n    display: block;\r\n    width: 250px;\r\n}\r\n\r\n.heroes a:hover {\r\n    color: #607D8B;\r\n}\r\n\r\n.heroes .badge {\r\n    display: inline-block;\r\n    font-size: small;\r\n    color: white;\r\n    padding: 0.8em 0.7em 0 0.7em;\r\n    background-color: #607D8B;\r\n    line-height: 1em;\r\n    position: relative;\r\n    left: -1px;\r\n    top: -4px;\r\n    height: 3.1em;\r\n    min-width: 16px;\r\n    text-align: right;\r\n    margin-left: 20px;\r\n    border-radius: 4px 4px 4px 4px;\r\n}\r\n\r\nbutton {\r\n    background-color: #eee;\r\n    border: none;\r\n    padding: 5px 10px;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    cursor: hand;\r\n    font-family: Arial;\r\n}\r\n\r\nbutton:hover {\r\n    background-color: #cfd8dc;\r\n}\r\n\r\nbutton.delete {\r\n    position: relative;\r\n    left: 194px;\r\n    top: -41px;\r\n    background-color: gray !important;\r\n    color: white;\r\n}"
+module.exports = "/* HeroesComponent's private CSS styles */\r\n\r\n.heroes {\r\n    margin: 0 0 2em 0;\r\n    list-style-type: none;\r\n    padding: 0;\r\n    width: 30em;\r\n}\r\n\r\n.heroes li {\r\n    position: relative;\r\n    cursor: pointer;\r\n    background-color: #EEE;\r\n    margin: .5em;\r\n    padding: .3em 0;\r\n    height: 2.6em;\r\n    border-radius: 4px;\r\n}\r\n\r\n.heroes li:hover {\r\n    color: #607D8B;\r\n    background-color: #DDD;\r\n    left: .1em;\r\n}\r\n\r\n.heroes a {\r\n    color: #888;\r\n    text-decoration: none;\r\n    position: relative;\r\n    display: block;\r\n    width: 250px;\r\n}\r\n\r\n.heroes a:hover {\r\n    color: #607D8B;\r\n}\r\n\r\n.heroes .badge {\r\n    display: inline-block;\r\n    font-size: small;\r\n    color: white;\r\n    padding: 0.8em 0.7em 0 0.7em;\r\n    background-color: #607D8B;\r\n    line-height: 1em;\r\n    position: relative;\r\n    left: -1px;\r\n    top: -4px;\r\n    height: 3.1em;\r\n    min-width: 16px;\r\n    text-align: right;\r\n    margin-left: 20px;\r\n    border-radius: 4px 4px 4px 4px;\r\n}\r\n\r\nbutton.delete {\r\n    position: relative;\r\n    left: 194px;\r\n    top: -41px;\r\n    background-color: gray !important;\r\n    color: white;\r\n}"
 
 /***/ }),
 
@@ -549,7 +549,7 @@ var HeroesComponent = (function () {
             .subscribe(function (hero) {
             _this.heroes.push(hero);
         });
-        this.getHeroes();
+        location.reload();
     };
     HeroesComponent.prototype.delete = function (hero) {
         this.heroes = this.heroes.filter(function (h) { return h !== hero; });

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -25,7 +24,12 @@ public class Controller {
 
 	@Autowired
 	private ServiceInterface service;
-	
+
+	@RequestMapping(value = "/dashboard",method = RequestMethod.DELETE)
+    public ResponseEntity<?> showAllModels(@RequestHeader HttpHeaders header)
+    {
+		return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 	
 	@RequestMapping(value = "/users",
             method = RequestMethod.POST)
@@ -43,7 +47,7 @@ public class Controller {
 	}
 	
 	
-    @RequestMapping(value = {"/users","/heroes"},
+    @RequestMapping(value = {"/users"},
             method = RequestMethod.GET)
     public ResponseEntity<?> getAllModels(@RequestHeader HttpHeaders header) {
     	List<Model> result = service.findAll();
