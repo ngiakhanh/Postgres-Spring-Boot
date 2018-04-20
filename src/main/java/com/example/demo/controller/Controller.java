@@ -19,9 +19,8 @@ import com.example.demo.mess.CustomeMessReceive;
 import com.example.demo.model.Model;
 import com.example.demo.serviceInterface.ServiceInterface;
 
-@CrossOrigin("http://localhost:8080")
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/")
 public class Controller {
 
 	@Autowired
@@ -44,7 +43,7 @@ public class Controller {
 	}
 	
 	
-    @RequestMapping(value = "/users",
+    @RequestMapping(value = {"/users","/heroes"},
             method = RequestMethod.GET)
     public ResponseEntity<?> getAllModels(@RequestHeader HttpHeaders header) {
     	List<Model> result = service.findAll();
