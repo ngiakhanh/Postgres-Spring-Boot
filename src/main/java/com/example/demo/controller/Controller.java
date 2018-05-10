@@ -25,7 +25,7 @@ public class Controller {
 	@Autowired
 	private ServiceInterface service;
 
-	@RequestMapping(value = "/dashboard",method = RequestMethod.DELETE)
+	@RequestMapping(value = "/dashboard",method = RequestMethod.GET)
     public ResponseEntity<?> showAllModels(@RequestHeader HttpHeaders header)
     {
 		return new ResponseEntity<>(null, HttpStatus.OK);
