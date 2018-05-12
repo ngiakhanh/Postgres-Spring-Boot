@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,13 @@ import com.example.demo.mess.CustomeMessReceive;
 import com.example.demo.model.Model;
 import com.example.demo.serviceInterface.ServiceInterface;
 
+
 @RestController
 @RequestMapping(value = "/")
 public class Controller {
 
 	@Autowired
 	private ServiceInterface service;
-
-	/*@RequestMapping(value = "/dashboard",method = RequestMethod.GET)
-    public ResponseEntity<?> showAllModels(@RequestHeader HttpHeaders header)
-    {
-		return new ResponseEntity<>(null, HttpStatus.OK);
-    }*/
 	
 	@RequestMapping(value = "/users",
             method = RequestMethod.POST)
@@ -107,6 +103,6 @@ public class Controller {
     		value = "/users",
             method = RequestMethod.DELETE)
     public void deleteAllModels() {
-        repository.deleteAll();;
+        repository.deleteAll();
     }*/
 }
